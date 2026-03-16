@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lovely CSC Academy</title>
+<style>
+body{font-family:Arial;margin:0;background:#f4f6f9}
+header{background:#0a58ca;color:white;padding:20px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;padding:20px}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center}
+.card button{margin-top:10px;padding:10px 15px;border:none;background:#0a58ca;color:white;border-radius:8px}
+footer{text-align:center;padding:15px;background:#111;color:white}
+.formbox{display:none;padding:20px}
+input{display:block;margin:10px 0;padding:8px;width:100%}
+</style>
+<script>
+function openForm(name){
+ document.getElementById('toolname').innerText=name;
+ document.getElementById('formbox').style.display='block';
+}
+
+function downloadText(){
+ let name=document.getElementById('name').value;
+ let phone=document.getElementById('phone').value;
+ let address=document.getElementById('address').value;
+
+ let text=`Name: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+ let blob=new Blob([text],{type:'text/plain'});
+ let a=document.createElement('a');
+ a.href=URL.createObjectURL(blob);
+ a.download="document.txt";
+ a.click();
+}
+</script>
+</head>
+
+<body>
+<header>
+<h1>Lovely CSC Academy</h1>
+<p>Quick Format Download Tools</p>
+</header>
+
+<div class="grid">
+<div class="card"><h3>Resume Maker</h3><button onclick="openForm('Resume Maker')">Open</button></div>
+<div class="card"><h3>Passport Photo</h3><button onclick="openForm('Passport Photo')">Open</button></div>
+<div class="card"><h3>Visiting Card</h3><button onclick="openForm('Visiting Card')">Open</button></div>
+<div class="card"><h3>Application Maker</h3><button onclick="openForm('Application Maker')">Open</button></div>
+<div class="card"><h3>ID Card Maker</h3><button onclick="openForm('ID Card Maker')">Open</button></div>
+<div class="card"><h3>Affidavit Format</h3><button onclick="openForm('Affidavit Format')">Open</button></div>
+<div class="card"><h3>Rent Agreement</h3><button onclick="openForm('Rent Agreement')">Open</button></div>
+<div class="card"><h3>BioData Maker</h3><button onclick="openForm('BioData Maker')">Open</button></div>
+<div class="card"><h3>Police Application</h3><button onclick="openForm('Police Application')">Open</button></div>
+<div class="card"><h3>Bank Application</h3><button onclick="openForm('Bank Application')">Open</button></div>
+<div class="card"><h3>Scholarship Form</h3><button onclick="openForm('Scholarship Form')">Open</button></div>
+<div class="card"><h3>Leave Application</h3><button onclick="openForm('Leave Application')">Open</button></div>
+</div>
+
+<div class="formbox" id="formbox">
+<h2 id="toolname"></h2>
+<input id="name" placeholder="Enter Name">
+<input id="phone" placeholder="Enter Mobile Number">
+<input id="address" placeholder="Enter Address">
+<button onclick="downloadText()">Download</button>
+</div>
+
+<footer>
+<p>© Lovely CSC Academy</p>
+</footer>
+</body>
+</html>
